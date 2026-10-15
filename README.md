@@ -9,7 +9,7 @@ Application de suivi des signalements et interventions de maintenance sur un ré
 - Règles de contribution : `CONTRIBUTING.md`
 
 ## Démarrer en local
-Prérequis : Docker, Java 21, Node 22.
+Prérequis : Docker, Java 25 (LTS), Node 22.
 
 ```bash
 cp .env.example .env
