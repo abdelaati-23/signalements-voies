@@ -1,7 +1,6 @@
 package fr.exemple.signalements;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.modulith.ApplicationModule;
 import org.springframework.modulith.core.ApplicationModules;
 
 public class ModularityTests {
