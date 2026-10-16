@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   backend:
-    name: Backend (Java 21 / Maven)
+    name: Backend (Java 25 / Maven)
     runs-on: ubuntu-latest
     defaults:
       run:
