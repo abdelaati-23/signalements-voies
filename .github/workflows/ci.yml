@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   backend:
-    name: Backend (Java 21 / Maven)
+    name: Backend (Java 25 / Maven)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21"
+          java-version: "25"
           cache: maven
       # Compile, lance les tests unitaires et d'intégration (Testcontainers),
       # et les tests d'architecture (Spring Modulith / ArchUnit)
@@ -49,7 +49,7 @@ jobs:
       - run: npm ci
       - run: npm run lint --if-present
       # Adapter la commande de test à la configuration du projet généré
-      - run: npm test -- --watch=false --browsers=ChromeHeadless
+      - run: npm test -- --watch=false
       - run: npm run build
 
   # Étape optionnelle : analyse SonarCloud (voir PHASE4-GUIDE.md, section 6)
@@ -60,7 +60,7 @@ jobs:
   #     - uses: actions/checkout@v4
   #       with: { fetch-depth: 0 }
   #     - uses: actions/setup-java@v4
-  #       with: { distribution: temurin, java-version: "21", cache: maven }
+  #       with: { distribution: temurin, java-version: "25", cache: maven }
   #     - working-directory: backend
   #       env:
   #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

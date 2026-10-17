@@ -1,0 +1,27 @@
+# Secrets et configuration locale
+.env
+*.pem
+*.key
+
+# Éditeurs
+.idea/
+.vscode/
+*.iml
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Backend (Maven)
+backend/target/
+*.class
+
+# Frontend (Node / Angular)
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/coverage/
+
+# Mobile (Capacitor), à compléter à l'ajout de la plateforme
+frontend/android/
+frontend/ios/

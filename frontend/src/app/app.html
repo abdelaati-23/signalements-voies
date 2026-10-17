@@ -1,0 +1,16 @@
+<main>
+  <h1>Signalements voies</h1>
+  @if(chargement()){
+    <p>Chargement...</p>
+  } @else if (erreur()){
+    <p role="alert">Impossible de charger les signalements.</p>
+  } @else if (signalements().length===0){
+    <p>Aucun signalement.</p>
+  } @else {
+    <ul>
+    @for (s of signalements(); track s.id){
+      <li>{{ s.description }} — {{ s.statut }} @if (s.urgent) { <strong>URGENT</strong> }</li>
+    }
+    </ul>
+  }
+</main>
