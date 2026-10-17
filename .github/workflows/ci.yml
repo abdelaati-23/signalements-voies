@@ -49,7 +49,7 @@ jobs:
       - run: npm ci
       - run: npm run lint --if-present
       # Adapter la commande de test à la configuration du projet généré
-      - run: npm test -- --watch=false --browsers=ChromeHeadless
+      - run: npm test -- --watch=false
       - run: npm run build
 
   # Étape optionnelle : analyse SonarCloud (voir PHASE4-GUIDE.md, section 6)
