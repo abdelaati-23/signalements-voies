@@ -1,4 +1,4 @@
-package fr.exemple.signalements.signalement;
+package fr.exemple.signalements.signalement.internal.domain;
 
 import java.math.BigDecimal;
 import java.util.UUID;

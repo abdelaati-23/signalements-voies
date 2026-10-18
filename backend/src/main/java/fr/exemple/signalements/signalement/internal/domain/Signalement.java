@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "signalement")
-public class signalement {
+public class Signalement {
     @Id
     private UUID id;
     private String ligne;
@@ -16,7 +16,7 @@ public class signalement {
     private String description;
     private boolean urgent;
     private String statut;
-    protected signalement() {
+    protected Signalement() {
 
     }
     public UUID getId() { return id; }
