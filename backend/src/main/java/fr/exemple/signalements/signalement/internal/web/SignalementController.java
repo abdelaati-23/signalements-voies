@@ -1,6 +1,6 @@
-package fr.exemple.signalements.signalement;
+package fr.exemple.signalements.signalement.internal.web;
 
-import fr.exemple.signalements.signalement.internal.domain.SignalementResponse;
+import fr.exemple.signalements.signalement.internal.application.SignalementService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,16 +10,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/signalements")
 public class SignalementController {
-    private final SignalementRepository repository;
+    private final SignalementService signalementService;
 
-    public SignalementController(SignalementRepository repository) {
-        this.repository = repository;
+    public SignalementController(SignalementService signalementService) {
+        this.signalementService = signalementService;
     }
 
     @GetMapping
     public List<SignalementResponse> lister(){
-        return repository.findAll().stream()
-            .map(s -> new SignalementResponse(s.getId(), s.getLigne(), s.getPointKm(), s.getDescription(), s.isUrgent(), s.getStatut()))
-            .toList();
+        return signalementService.lister().stream().map(SignalementResponse::from).toList();
     }
 }

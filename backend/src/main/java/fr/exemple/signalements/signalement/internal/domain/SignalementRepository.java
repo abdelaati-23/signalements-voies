@@ -1,6 +1,5 @@
-package fr.exemple.signalements.signalement;
+package fr.exemple.signalements.signalement.internal.domain;
 
-import fr.exemple.signalements.signalement.internal.domain.Signalement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

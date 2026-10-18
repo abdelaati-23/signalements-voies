@@ -1,4 +1,4 @@
-package fr.exemple.signalements.signalement;
+package fr.exemple.signalements.signalement.internal.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
