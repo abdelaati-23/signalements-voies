@@ -1,6 +1,7 @@
 package fr.exemple.signalements.signalement.internal.web;
 
 import fr.exemple.signalements.signalement.internal.domain.Signalement;
+import fr.exemple.signalements.signalement.internal.domain.StatutSignalement;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -11,7 +12,7 @@ public record SignalementResponse(
     BigDecimal pointKm,
     String description,
     boolean urgent,
-    String statut) {
+    StatutSignalement statut) {
 
     public static SignalementResponse from(Signalement s) {
         return new SignalementResponse(
