@@ -17,8 +17,8 @@ public class Signalement {
     private boolean urgent;
     private String statut;
     protected Signalement() {
-
     }
+
     public UUID getId() { return id; }
     public String getLigne() { return ligne; }
     public BigDecimal getPointKm() { return pointKm; }
