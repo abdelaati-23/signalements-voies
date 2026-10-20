@@ -1,9 +1,12 @@
 package fr.exemple.signalements.signalement.internal.domain;
+import fr.exemple.signalements.signalement.internal.domain.SignalementInvalideException.Violation;
 
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +26,28 @@ public class Signalement {
     }
     public static Signalement creer(UUID id, String ligne, BigDecimal pointKm, String description,
                                     boolean urgent, Instant saisiLe, Instant recuLe){
+        List<Violation> violations = new ArrayList<>();
+        if (id == null) {
+            violations.add(new Violation("id", "obligatoire"));
+        }
+        if (ligne == null || ligne.isBlank()) {
+            violations.add(new Violation("ligne", "obligatoire"));
+        }
+        if (pointKm == null || pointKm.signum() < 0) {
+            violations.add(new Violation("pointKm", "doit être un nombre positif ou nul"));
+        }
+        if (description == null || description.isBlank()) {
+            violations.add(new Violation("description", "obligatoire"));
+        } else if (description.length() > 2000) {
+            violations.add(new Violation("description", "2000 caractères maximum"));
+        }
+        if (saisiLe == null) {
+            violations.add(new Violation("saisiLe", "obligatoire"));
+        }
+        if (!violations.isEmpty()) {
+            throw new SignalementInvalideException(violations);
+        }
+
         Signalement s=new Signalement();
         s.id=id;
         s.ligne=ligne;
