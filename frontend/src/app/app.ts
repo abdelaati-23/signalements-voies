@@ -1,5 +1,4 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Signalement, SignalementService } from './signalement/signalement.service';
 
 @Component({
